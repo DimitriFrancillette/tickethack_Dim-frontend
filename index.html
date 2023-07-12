@@ -26,11 +26,11 @@
     <div class="flex flex-col">
         <div id="header" class="flex justify-between p-4">
             <h1 class="text-3xl font-bold text-tickethack">
-                Tickethack
+                <a href="#">Tickethack</a>
             </h1>
             <div id="navDiv" class="flex justify-around w-1/12 font-bold">
-                <a>Cart</a>
-                <a>Bookings</a>
+                <a href="#">Cart</a>
+                <a href="#">Bookings</a>
             </div>
         </div>
         <div id="mainContent" class="bg-cover" style="background-image: url(/ticketHack-Dim/frontend/images/train-track.jpg)
@@ -41,21 +41,21 @@
             </div>
             <div id="middleContainer" class="flex justify-center">
                 <div id="middleContainerBox" class="flex justify-around w-3/5 my-10 px-10 py-10">
-                    <div id="leftbox" class="bg-white h-96  w-96 rounded-xl">
-                        <div id="searchFields">
+                    <div id="leftbox" class="flex flex-col justify-between p-6 bg-white h-96  w-96 rounded-xl">
+                        <div id="searchFields" class=" flex flex-col justify-between h-1/2">
                             <div id="travelPlaces">
-                                <div class="inputField" id="departure">Departure</div>
-                                <div class="inputField" id="arrival">Arrival</div>
+                                <input type="text" id="departure" name="departure" required placeholder="Departure" class="bg-slate-200 h-10 p-2 border-b border-slate-400 w-full rounded-l">
+                                <input type="text" id="arrival" name="arrival" required placeholder="Arrival" class="bg-slate-200 h-10 p-2 w-full rounded-l">
                             </div>
-                            <div class="inputField" id="date">23/06/22</div>
+                            <input type="date" id="date" name="date" value="2023-07-12" min="2023-07-12" class="bg-slate-200 h-10 p-2 w-full rounded-l">
+
                         </div>
-                        <div class="inputField" id="search-btn">Search</div>
+                        <input type="submit" id="search-btn" class="bg-tickethack h-10 p-2 rounded-l text-white" value="Search">
                     </div>
-                    <div id="rightbox" class="bg-white h-96  w-96 rounded-xl">
-                        <div id="rightBoxImg">
-                            IMAGE
+                    <div id="rightbox" class="flex flex-col justify-evenly p-6 bg-white h-96  w-96 rounded-xl">
+                        <div id="rightBoxImg" class="bg-center h-3/5" style="background-image: url(/ticketHack-Dim/frontend/images/train.png);">
                         </div>
-                        <div id="rightBoxText">
+                        <div id="rightBoxText" class="text-center text-lg font-medium">
                             It's time to book your future trip.
                         </div>
                     </div>
