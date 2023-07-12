@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickethack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tickethack: '#4faa91',
+                        rail: '#3A3813'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="h-full">
+    <div class="flex flex-col">
+        <div id="header" class="flex justify-between p-4">
+            <h1 class="text-3xl font-bold text-tickethack">
+                Tickethack
+            </h1>
+            <div id="navDiv" class="flex justify-around w-1/12 font-bold">
+                <a>Cart</a>
+                <a>Bookings</a>
+            </div>
+        </div>
+        <div id="mainContent" class="bg-cover" style="background-image: url(/ticketHack-Dim/frontend/images/train-track.jpg)
+        ;">
+            <div id="top" class="text-center text-rail">
+                <h2 class="text-4xl font-bold mt-12 mb-4">Explore the world effortlessly by train</h2>
+                <p class="text-2xl font-bold">Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack</p>
+            </div>
+            <div id="middleContainer" class="flex justify-center">
+                <div id="middleContainerBox" class="flex justify-around w-3/5 my-10 px-10 py-10">
+                    <div id="leftbox" class="bg-white h-96  w-96 rounded-xl">
+                        <div id="searchFields">
+                            <div id="travelPlaces">
+                                <div class="inputField" id="departure">Departure</div>
+                                <div class="inputField" id="arrival">Arrival</div>
+                            </div>
+                            <div class="inputField" id="date">23/06/22</div>
+                        </div>
+                        <div class="inputField" id="search-btn">Search</div>
+                    </div>
+                    <div id="rightbox" class="bg-white h-96  w-96 rounded-xl">
+                        <div id="rightBoxImg">
+                            IMAGE
+                        </div>
+                        <div id="rightBoxText">
+                            It's time to book your future trip.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
