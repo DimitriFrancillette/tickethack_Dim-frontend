@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickethack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tickethack: '#4faa91',
+                        rail: '#3A3813',
+                        deepBlue:'#00153D',
+                        cartTravel: '#F5EEEE',
+                    }
+                },
+                minHeight: {
+                    'cart': '60%',
+                    'travel': '4rem',
+                    'total':'4rem',
+                },
+                maxHeight: {
+                    'cart': '60%',
+                    'items': '100%',
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="h-full">
+    <div class="flex flex-col">
+        <div id="header" class="flex justify-between p-4">
+            <h1 class="text-3xl font-bold text-tickethack">
+                <a href="/ticketHack-Dim/frontend/index.html">Tickethack</a>
+            </h1>
+            <div id="navDiv" class="flex justify-around w-1/12 font-bold">
+                <a href="#">Cart</a>
+                <a href="#">Bookings</a>
+            </div>
+        </div>
+        <div id="mainContent" class="flex items-center justify-center bg-slate-200">
+
+            <div id="cart" class="flex flex-col justify-between bg-white w-3/5 min-h-cart max-h-cart rounded-lg font-bold">
+                <div id="cartTitle" class="flex justify-center h-16 mb-1 pt-2 text-tickethack text-3xl">My cart</div>
+                <div id="itemsContainer" class="flex flex-col items-center max-h-items overflow-auto">
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Marseille > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                        <div id="cities">Paris > Lyon</div>
+                        <div id="hour">22:10</div>
+                        <div id="price">127€</div>
+                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                    </div>
+
+                </div>
+                <div id="cartFooter" class="flex justify-between items-center px-20 mt-1 bg-deepBlue min-h-total text-white rounded-b-lg">
+                    <div id="totalPrice">Total: 127€</div>
+                    <div id="purchaseContainer" class="flex justify-center bg-tickethack h-9 w-28 rounded">
+                        <input type="submit" id="purchase-btn" class="h-9 w-24 p-2 text-white rounded-l" value="Purchase">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
