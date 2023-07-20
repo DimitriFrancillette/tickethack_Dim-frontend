@@ -7,10 +7,8 @@ document.querySelector('#search-btn').addEventListener('click', function () {
 
 
     if (!departure || !arrival || !date) {
-        // document.querySelector('#rightBoxImg').src = "/images/notfound.png";
         document.querySelector('#rightBoxImg').style.backgroundImage = "url(/ticketHack-Dim/frontend/images/notfound.png)"
         document.querySelector('#rightBoxText').textContent = "No trip found.";
-        console.log('Some information is missing in your search')
         return
     }
 
@@ -18,28 +16,55 @@ document.querySelector('#search-btn').addEventListener('click', function () {
         .then(response => response.json())
         .then(data => {
             if (data.result === false) {
-                console.log("NOP", data);
+                document.querySelector('#rightbox').innerHTML = `
+                <div id="rightBoxImg" class="bg-contain bg-no-repeat bg-center h-3/5" style="background-image: url(/ticketHack-Dim/frontend/images/notfound.png);">
+                </div>
+                <div id="rightBoxText" class="text-center text-lg font-medium">
+                    No trip found.
+                </div>
+                `;
                 return;
             }
 
-            console.log(data.trips)
 
             if (data.trips) {
+                document.querySelector('#rightbox').innerHTML = '';
                 for (let i = 0; i < data.trips.length; i++) {
                     const date = new Date(data.trips[i].date);
                     const hours = date.getHours();
                     let minutes = date.getMinutes();
-                    if (minutes< 10 ) {
+                    if (minutes < 10) {
                         minutes = `0${minutes}`
                     }
-                    document.querySelector('#rightbox').innerHTML +=`
-                   <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
-                     <div id="cities">${data.trips[i].departure} > ${data.trips[i].arrival}</div>
-                     <div id="hour">${hours}:${minutes}</div>
-                     <div id="price">${data.trips[i].price}€</div>
-                     <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
-                 </div>
-                            `}};
+                    document.querySelector('#rightbox').innerHTML += `
+                        <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 h-14 rounded">
+                            <div id="cities">${data.trips[i].departure} > ${data.trips[i].arrival}</div>
+                            <div id="hour">${hours}:${minutes}</div>
+                            <div id="price">${data.trips[i].price}€</div>
+                            <input type="submit" id="book-btn" data-trip=${data.trips[i]._id} class="bg-tickethack h-10 w-14 p-2 rounded text-white" value="Book">
+                        </div>
+                    `
+                }
+
+
+                const bookButtons = document.querySelectorAll('#book-btn');
+
+                for (const button of bookButtons) {
+
+                    button.addEventListener('click', function () {
+                        console.log(button.dataset.trip);
+                    });
+                }
+
+
+                    
+
+
+
+            };
+
         });
+
+
 
 });

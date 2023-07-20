@@ -14,7 +14,9 @@
                 extend: {
                     colors: {
                         tickethack: '#4faa91',
-                        rail: '#3A3813'
+                        rail: '#3A3813',
+                        deepBlue:'#00153D',
+                        cartTravel: '#F5EEEE',
                     }
                 }
             }
@@ -39,9 +41,9 @@
                 <h2 class="text-4xl font-bold mt-12 mb-4">Explore the world effortlessly by train</h2>
                 <p class="text-2xl font-bold">Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack</p>
             </div>
-            <div id="middleContainer" class="flex justify-center">
+            <div id="middleContainer" class="flex justify-center h-4/5">
                 <div id="middleContainerBox" class="flex justify-around w-3/5 my-10 px-10 py-10">
-                    <div id="leftbox" class="flex flex-col justify-between p-6 bg-white h-96  w-96 rounded-xl">
+                    <div id="leftbox" class="flex flex-col justify-between p-6 bg-white h-5/5  w-96 rounded-xl">
                         <div id="searchFields" class=" flex flex-col justify-between h-1/2">
                             <div id="travelPlaces">
                                 <input type="text" id="departure" name="departure" required placeholder="Departure" class="bg-slate-200 h-10 p-2 border-b border-slate-400 w-full rounded">
@@ -52,7 +54,7 @@
                         </div>
                         <input type="submit" id="search-btn" class="bg-tickethack h-10 p-2 rounded text-white" value="Search">
                     </div>
-                    <div id="rightbox" class="flex flex-col justify-evenly p-6 bg-white h-96  w-96 rounded-xl">
+                    <div id="rightbox" class="flex flex-col justify-evenly p-6 bg-white h-5/5  w-96 rounded-xl overflow-auto">
                         <div id="rightBoxImg" class="bg-contain bg-no-repeat bg-center h-3/5" style="background-image: url(/ticketHack-Dim/frontend/images/train.png);">
                         </div>
                         <div id="rightBoxText" class="text-center text-lg font-medium">
