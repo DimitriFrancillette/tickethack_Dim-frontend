@@ -1,5 +1,13 @@
 console.log("scriptCart working !")
 
+let totalPrice = 0;
+
+function setTotalPrice (amount) {
+    document.querySelector('#totalPrice').innerText = `
+        Total : ${amount} €
+    `;
+};
+
 function removeFromCart(tripId) {
 
     fetch(`http://localhost:3000/bookings/${tripId}`, { method: 'DELETE' })
@@ -42,14 +50,18 @@ fetch('http://localhost:3000/bookings/')
                     minutes = `0${minutes}`
                 }
 
+                totalPrice += trip.trip.price;
+
                 document.querySelector('#itemsContainer').innerHTML += `
                     <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
                         <div id="cities">${trip.trip.departure} > ${trip.trip.arrival}</div>
                         <div id="hour">${hours}:${minutes}</div>
                         <div id="price">${trip.trip.price}€</div>
-                        <input type="submit" id="delete-btn" data-trip=${trip.trip._id} class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                        <input type="submit" id="delete-btn" data-trip=${trip.trip._id} data-price=${trip.trip.price} class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
                     </div>
                 `;
+
+                setTotalPrice(totalPrice)
             }
         }
 
@@ -58,8 +70,10 @@ fetch('http://localhost:3000/bookings/')
         for (const button of deleteButtons) {
 
             button.addEventListener('click', function () {
-                removeFromCart(button.dataset.trip)
+                removeFromCart(button.dataset.trip);
+                totalPrice -= button.dataset.price;
                 this.parentNode.remove();
+                setTotalPrice(totalPrice)
             });
         };
     });
