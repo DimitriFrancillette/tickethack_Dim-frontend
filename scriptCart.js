@@ -18,8 +18,8 @@ function removeFromCart(tripId) {
 }
 
 fetch('http://localhost:3000/bookings/')
-    .then(response => response.json())
-    .then(data => {
+.then(response => response.json())
+.then(data => {
         console.log(data)
 
         if (data.result === false) {
@@ -53,7 +53,7 @@ fetch('http://localhost:3000/bookings/')
                 totalPrice += trip.trip.price;
 
                 document.querySelector('#itemsContainer').innerHTML += `
-                    <div id="travelContainer" class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
+                    <div id="travelContainer" data-tripid=${trip.trip._id} class="flex justify-between items-center bg-cartTravel m-1 px-4 min-h-travel w-3/4 rounded">
                         <div id="cities">${trip.trip.departure} > ${trip.trip.arrival}</div>
                         <div id="hour">${hours}:${minutes}</div>
                         <div id="price">${trip.trip.price}€</div>
@@ -68,7 +68,6 @@ fetch('http://localhost:3000/bookings/')
         const deleteButtons = document.querySelectorAll('#delete-btn');
 
         for (const button of deleteButtons) {
-
             button.addEventListener('click', function () {
                 removeFromCart(button.dataset.trip);
                 totalPrice -= button.dataset.price;
@@ -76,4 +75,19 @@ fetch('http://localhost:3000/bookings/')
                 setTotalPrice(totalPrice)
             });
         };
-    });
+});
+
+
+document.querySelector('#purchase-btn').addEventListener('click', function () {
+    const cartTrips = document.querySelectorAll('#travelContainer');
+
+    for (const trip of cartTrips) {
+        console.log(trip.dataset.tripid);
+        fetch(`http://localhost:3000/bookings/booked/${trip.dataset.tripid}`, { method: 'PATCH' })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
+
+});
