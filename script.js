@@ -26,7 +26,6 @@ document.querySelector('#search-btn').addEventListener('click', function () {
                 return;
             }
 
-
             if (data.trips) {
                 document.querySelector('#rightbox').innerHTML = '';
                 for (let i = 0; i < data.trips.length; i++) {
@@ -46,25 +45,29 @@ document.querySelector('#search-btn').addEventListener('click', function () {
                     `
                 }
 
-
                 const bookButtons = document.querySelectorAll('#book-btn');
 
                 for (const button of bookButtons) {
 
                     button.addEventListener('click', function () {
-                        console.log(button.dataset.trip);
+                        addToCart(button.dataset.trip)
                     });
                 }
-
-
-                    
-
-
-
             };
 
         });
-
-
-
 });
+
+
+function addToCart (tripId) {
+
+    fetch('http://localhost:3000/bookings/', {
+        method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({tripId}),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+}
