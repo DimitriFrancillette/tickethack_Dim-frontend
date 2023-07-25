@@ -27,7 +27,7 @@ fetch('http://localhost:3000/bookings/')
             document.querySelector('#mainContent').innerHTML = `
                 <div id="cart" class="flex flex-col justify-evenly bg-white w-3/5 min-h-emptyCart max-h-emptyCart rounded-lg font-bold">
                     <div id="upperText" class="text-center text-lg font-medium">
-                        No Booking yet.
+                        No tickets in your cart.
                     </div>
 
                     <div id="bottomText" class="text-center text-lg font-medium">
@@ -83,11 +83,13 @@ document.querySelector('#purchase-btn').addEventListener('click', function () {
 
     for (const trip of cartTrips) {
         console.log(trip.dataset.tripid);
-        fetch(`http://localhost:3000/bookings/booked/${trip.dataset.tripid}`, { method: 'PATCH' })
+        fetch(`http://localhost:3000/bookings/${trip.dataset.tripid}`, { method: 'PATCH' })
         .then(response => response.json())
         .then(data => {
             console.log(data);
         })
+
+        trip.remove();
     }
 
 });
