@@ -1,5 +1,14 @@
 console.log("scriptCart working !")
 
+function removeFromCart(tripId) {
+
+    fetch(`http://localhost:3000/bookings/${tripId}`, { method: 'DELETE' })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+}
+
 fetch('http://localhost:3000/bookings/')
     .then(response => response.json())
     .then(data => {
@@ -26,8 +35,6 @@ fetch('http://localhost:3000/bookings/')
             document.querySelector('#itemsContainer').innerHTML = '';
 
             for (const trip of data.bookings) {
-                console.log(trip.trip)
-
                 const date = new Date(trip.trip.date);
                 const hours = date.getHours();
                 let minutes = date.getMinutes();
@@ -40,12 +47,19 @@ fetch('http://localhost:3000/bookings/')
                         <div id="cities">${trip.trip.departure} > ${trip.trip.arrival}</div>
                         <div id="hour">${hours}:${minutes}</div>
                         <div id="price">${trip.trip.price}€</div>
-                        <input type="submit" id="delete-btn" class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
+                        <input type="submit" id="delete-btn" data-trip=${trip.trip._id} class="bg-tickethack h-10 w-10 p-2 rounded text-white" value="X">
                     </div>
                 `;
             }
         }
 
+        const deleteButtons = document.querySelectorAll('#delete-btn');
 
+        for (const button of deleteButtons) {
 
-    })
+            button.addEventListener('click', function () {
+                removeFromCart(button.dataset.trip)
+                this.parentNode.remove();
+            });
+        };
+    });
